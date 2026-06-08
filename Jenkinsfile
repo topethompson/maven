@@ -3,7 +3,7 @@ def gv
 pipeline {
     agent any
     tools {
-        maven 'Maven'
+        maven 'Maven-3'
     }
     stages {
         stage('increment version') {
@@ -31,10 +31,10 @@ pipeline {
             steps {
                 script {
                     echo "building the docker image..."
-                    withCredentials([usernamePassword(credentialsId: 'docker-hub-repo', passwordVariable: 'PASS', usernameVariable: 'USER')]){
-                        sh "docker build -t nanatwn/demo-app:${IMAGE_NAME} ."
+                    withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'PASS', usernameVariable: 'USER')]){
+                        sh "docker build -t ttttttt534/demo-repo:${IMAGE_NAME} ."
                         sh 'echo $PASS | docker login -u $USER --password-stdin'
-                        sh "docker push nanatwn/demo-app:${IMAGE_NAME}"
+                        sh "docker push ttttttt534/demo-repo:${IMAGE_NAME}"
                     }
                 }
             }
