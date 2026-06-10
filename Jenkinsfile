@@ -57,10 +57,10 @@ pipeline {
                         sh 'git branch'
                         sh 'git config --list'
 
-                        sh "git remote set-url origin https://${USER}:${PASS}@github.com/topethompson/maven.git"
+                        sh "git push origin https://${USER}:${PASS}@github.com/topethompson/maven.git:main"
                         sh 'git add .'
                         sh 'git commit -m "ci: version bump"'
-                        sh 'git push origin HEAD:${BRANCH_NAME}'
+                        sh 'git push origin HEAD:main'
                     }
                 }
             }
