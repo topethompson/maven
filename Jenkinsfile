@@ -57,10 +57,10 @@ pipeline {
                         sh 'git branch'
                         sh 'git config --list'
 
-                        sh "git push https://${USER}:${PASS}@github.com/topethompson/maven.git HEAD:main"
+                        sh "git push https://${USER}:${PASS}@github.com/topethompson/maven.git HEAD:master"
                         sh 'git add .'
                         sh 'git commit -m "ci: version bump"'
-                        sh 'git push origin HEAD:main'
+                        sh 'git push origin HEAD:master'
                     }
                 }
             }
